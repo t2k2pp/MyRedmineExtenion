@@ -1,0 +1,16 @@
+# Claude-specific files
+.claude/
+
+# Icon generation tool
+IconTool/
+
+# Ignore all png files...
+*.png
+
+# ...except for the ones that are part of the extension
+!icon128.png
+!icon16.png
+!icon48.png
+!CursorHover.png
+!1755930500731b.png
+!1755930500731d.png

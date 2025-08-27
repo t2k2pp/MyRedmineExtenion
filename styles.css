@@ -1,0 +1,201 @@
+/* Redmine Quick Edit - コンテンツスクリプト用スタイル */
+
+/* 編集可能なラベルのスタイル - Redmineに自然に溶け込む */
+.redmine-quick-edit-label {
+  position: relative;
+  transition: all 0.15s ease;
+  display: inline-block;
+}
+
+/* ホバー時: 自然なリンクのような見た目 */
+.redmine-quick-edit-label:hover {
+  cursor: pointer !important;
+  color: #0066cc !important;
+  text-decoration: underline !important;
+  background-color: rgba(0, 102, 204, 0.1) !important;
+  /* 要素のサイズや位置を変更しない */
+}
+
+/* インライン編集コンテナ */
+.redmine-quick-edit-container {
+  display: inline-block;
+  min-width: 200px;
+  background: white;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  position: relative;
+}
+
+/* 入力フィールド共通スタイル */
+.redmine-quick-edit-container input,
+.redmine-quick-edit-container select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  margin-bottom: 8px;
+  background: white;
+}
+
+.redmine-quick-edit-container input:focus,
+.redmine-quick-edit-container select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* セレクト専用スタイル */
+.redmine-quick-edit-select {
+  cursor: pointer;
+  min-height: 200px;
+  size: 8; /* 8個のオプションを表示 */
+}
+
+/* 日付入力専用スタイル */
+.redmine-quick-edit-date {
+  cursor: pointer;
+}
+
+/* 数値入力専用スタイル */
+.redmine-quick-edit-number {
+  text-align: right;
+}
+
+/* テキスト入力専用スタイル */
+.redmine-quick-edit-text {
+  /* 基本スタイルを継承 */
+}
+
+/* ボタンコンテナ */
+.redmine-quick-edit-buttons {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+/* ボタン共通スタイル */
+.redmine-quick-edit-buttons button {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.redmine-quick-edit-buttons button:hover {
+  transform: translateY(-1px);
+}
+
+.redmine-quick-edit-buttons button:active {
+  transform: translateY(0);
+}
+
+/* 保存ボタン */
+.redmine-quick-edit-save {
+  background: #28a745;
+  color: white;
+}
+
+.redmine-quick-edit-save:hover {
+  background: #218838;
+}
+
+/* キャンセルボタン */
+.redmine-quick-edit-cancel {
+  background: #6c757d;
+  color: white;
+}
+
+.redmine-quick-edit-cancel:hover {
+  background: #5a6268;
+}
+
+/* 通知メッセージ */
+.redmine-quick-edit-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* 成功通知 */
+.redmine-quick-edit-notification.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* エラー通知 */
+.redmine-quick-edit-notification.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* 通知アニメーション */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Redmineの既存スタイルとの競合を防ぐ */
+.redmine-quick-edit-container * {
+  box-sizing: border-box;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .redmine-quick-edit-container {
+    min-width: 150px;
+    padding: 6px;
+  }
+  
+  .redmine-quick-edit-container input,
+  .redmine-quick-edit-container select {
+    padding: 4px 6px;
+    font-size: 13px;
+  }
+  
+  .redmine-quick-edit-buttons button {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  
+  .redmine-quick-edit-notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    font-size: 13px;
+  }
+}
+
+/* 高コントラストモード対応 */
+@media (prefers-contrast: high) {
+  .redmine-quick-edit-container {
+    border-width: 3px;
+  }
+  
+  .redmine-quick-edit-container input,
+  .redmine-quick-edit-container select {
+    border-width: 2px;
+  }
+}

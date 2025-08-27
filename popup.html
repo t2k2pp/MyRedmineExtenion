@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redmine Quick Edit 設定</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Redmine Quick Edit</h1>
+      <p class="subtitle">設定</p>
+    </header>
+
+    <main>
+      <form id="settingsForm">
+        <div class="form-group">
+          <label for="redmineUrl">Redmine URL</label>
+          <input 
+            type="url" 
+            id="redmineUrl" 
+            placeholder="https://your-redmine.com" 
+            required
+          >
+          <small>例: https://redmine.example.com</small>
+        </div>
+
+        <div class="form-group">
+          <label for="apiKey">APIキー</label>
+          <input 
+            type="password" 
+            id="apiKey" 
+            placeholder="あなたのRedmine APIキー" 
+            required
+          >
+          <small>
+            <a href="#" id="helpLink">APIキーの取得方法</a>
+          </small>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="saveBtn">保存</button>
+          <button type="button" id="testBtn">接続テスト</button>
+        </div>
+      </form>
+
+      <div id="status" class="status"></div>
+
+      <details class="help-section">
+        <summary>ヘルプ</summary>
+        <div class="help-content">
+          <h3>APIキーの取得方法</h3>
+          <ol>
+            <li>Redmineにログインします</li>
+            <li>右上のユーザー名をクリック → 「個人設定」</li>
+            <li>右側の「APIアクセスキー」の「表示」をクリック</li>
+            <li>表示されたキーをコピーして上記に入力</li>
+          </ol>
+          
+          <h3>使い方</h3>
+          <ul>
+            <li>チケット詳細画面で、編集したいフィールドのラベルをダブルクリック</li>
+            <li>インライン編集モードになるので、値を変更</li>
+            <li>Enterキーまたは他の場所をクリックして保存</li>
+            <li>Escキーでキャンセル</li>
+          </ul>
+        </div>
+      </details>
+    </main>
+
+    <footer>
+      <p>Version 1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
